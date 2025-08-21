@@ -268,7 +268,7 @@ section {
   font-weight: 500;
 }
 
-/* Experience Section */
+/* Timeline (used by Projects & Education) */
 .timeline {
   max-width: 800px;
   margin: 0 auto;
@@ -356,6 +356,34 @@ section {
   color: #2563eb;
   position: absolute;
   left: 0;
+}
+
+/* === Projects-specific tweaks === */
+.projects .timeline {
+  margin-top: 2rem; /* keeps the vertical line below the "Projects" title */
+}
+
+/* Make the entire card clickable via JS (not text links) */
+.project-card {
+  cursor: pointer;
+  outline: none;
+}
+
+.project-card:focus-visible {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35);
+  border-radius: 12px;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease;
+}
+
+/* Unclickable / Coming Soon */
+.timeline-disabled {
+  opacity: 0.7;
+  cursor: default;
+  pointer-events: none; /* ensure it cannot be clicked */
 }
 
 /* Skills Section */
