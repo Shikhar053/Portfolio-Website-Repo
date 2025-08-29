@@ -255,3 +255,4 @@ This portfolio template is free to use and modify for personal and commercial pr
 **Happy Coding! 🚀**
 
 Your portfolio website is now ready to showcase your skills and experience to the world!
+
