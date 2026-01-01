@@ -385,7 +385,20 @@ section {
   cursor: default;
   pointer-events: none; /* ensure it cannot be clicked */
 }
+/* Skill → Project Mapping Effects */
+.project-card.highlight {
+  border: 2px solid #2563eb;
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25);
+  transform: scale(1.02);
+}
 
+.project-card.dimmed {
+  opacity: 0.3;
+  pointer-events: none;
+}
+.skill-item {
+  cursor: pointer;
+}
 /* Skills Section */
 .skills {
   background: #f8fafc;

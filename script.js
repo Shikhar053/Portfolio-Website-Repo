@@ -347,3 +347,58 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+/* ===============================
+   Skill → Project Mapping (Improved Scroll)
+   =============================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const skillItems = document.querySelectorAll(".skill-item[data-skill]");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  skillItems.forEach(skill => {
+    skill.addEventListener("click", (e) => {
+      e.stopPropagation(); // prevent immediate reset
+
+      const selectedSkill = skill.getAttribute("data-skill");
+      let firstMatchedProject = null;
+
+      projectCards.forEach(card => {
+        const skills = card.getAttribute("data-skills");
+
+        if (skills && skills.includes(selectedSkill)) {
+          card.classList.add("highlight");
+          card.classList.remove("dimmed");
+
+          if (!firstMatchedProject) {
+            firstMatchedProject = card;
+          }
+        } else {
+          card.classList.remove("highlight");
+          card.classList.add("dimmed");
+        }
+      });
+
+      // Scroll to the FIRST matched project card
+      if (firstMatchedProject) {
+        firstMatchedProject.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }
+    });
+  });
+});
+// Reset project card styles when clicking outside skill items
+document.addEventListener("click", (e) => {
+  const clickedSkill = e.target.closest(".skill-item[data-skill]");
+  const clickedProject = e.target.closest(".project-card");
+
+  // If click is NOT on a skill and NOT on a project card → reset
+  if (!clickedSkill && !clickedProject) {
+    document.querySelectorAll(".project-card").forEach((card) => {
+      card.classList.remove("highlight", "dimmed");
+    });
+  }
+});
+/* ===============================
+   End of Skill → Project Mapping
+   =============================== */ 
